@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from pygame import *
-from Core import Core
-from Graphical_logic import Graphical_logic
-from battle import Battle
+from lib.lib_game.Core import Core
+from lib.lib_game.Graphical_logic import Graphical_logic
+from lib.lib_game.battle import Battle
 
 
 '''
@@ -24,9 +24,9 @@ class Event_Handler():
             try:
                 x_start,y_start = action_to_minimap_coords(last_x,last_y)# ВОТ ТЫ ГДЕ, СЦУКА!
             except AttributeError:
-                print 'lol'
+                #print 'lol'
                 x_start,y_start = action_to_minimap_coords(event[2],event[3])# ВОТ ТЫ ГДЕ, СЦУКА!
-            #print 'Coords = '+str(event[2])+' '+str(event[3])
+            ##print 'Coords = '+str(event[2])+' '+str(event[3])
             stage, army_coords,id_army = action_to_map_coords(event[2],event[3],x_start,y_start)
             return stage,last_x,last_y,fraction,days, army_coords,id_army,x_start,y_start
         elif (event[0]=='minimap_coords'):
@@ -42,7 +42,7 @@ class Event_Handler():
             stage = event[1]
             return stage,last_x,last_y,fraction,days, 0,0,x_start,y_start
         elif (event[0]=='end_of_army_steps'):
-            print 'end_of_army_steps'
+            #print 'end_of_army_steps'
             return stage,last_x,last_y,fraction,days, 0,0,x_start,y_start
         elif (event[0]=='base_mode'):
             stage = event[1]
@@ -52,7 +52,7 @@ class Event_Handler():
                 self.graphical_logic.add_resources_for_current_fraction(fraction, filename)
                 self.graphical_logic.change_all_armies_steps_for_fraction(fraction, filename)
                 if (days+2)%10 == 0:
-                    print ' pivo'
+                    #print ' pivo'
                     self.graphical_logic.troops_generator(fraction, filename)                
                 fraction = 2
                 return 0,last_x,last_y,fraction,days, 0,0,x_start,y_start
@@ -60,7 +60,7 @@ class Event_Handler():
                 self.graphical_logic.add_resources_for_current_fraction(fraction, filename)
                 self.graphical_logic.change_all_armies_steps_for_fraction(fraction, filename)
                 if (days+2)%10 == 0:
-                    print 'vodka'
+                    #print 'vodka'
                     self.graphical_logic.troops_generator(fraction, filename)    
                 fraction = 1
                 days +=1
@@ -69,7 +69,7 @@ class Event_Handler():
         
     def stage_1(self,event,name_for_saving,filename,action_for_save,reload_window,last_x,last_y):
         action_for_save(name_for_saving)
-        print 'Lol = '+str(len(event))
+        #print 'Lol = '+str(len(event))
         stage = event[1]
         if event[3] == 'continue':
             if len(name_for_saving) <10:
@@ -97,7 +97,7 @@ class Event_Handler():
     
     def stage_2(self,event,name_for_loading,filename,action_for_load,reload_window,last_x,last_y):
         action_for_load(name_for_loading)
-        print 'Lol = '+str(len(event))
+        #print 'Lol = '+str(len(event))
         stage = event[1]
         if event[3] == 'continue':
             if len(name_for_loading) <10:
@@ -142,13 +142,13 @@ class Event_Handler():
     
     
     def stage_6(self,event,battle_dialog,stage,reload_window,last_x,last_y,armies_lists):
-        print event
+        #print event
         list = self.battle.auto_battle(armies_lists[0], armies_lists[1])
-        print list
+        #print list
         if event[0] == 'battle_mode':
             stage = event[1]
-            print stage
-            print event
+            #print stage
+            #print event
             return stage
         
         else:

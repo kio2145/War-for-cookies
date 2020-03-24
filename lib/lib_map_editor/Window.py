@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 import pygame, sys
-from Core import *
-from ResManager import ResManager
-from Resources import *
-from Graphical_logic import *
-from Events import *
+from lib.lib_map_editor.Core import *
+from lib.lib_map_editor.ResManager import ResManager
+from lib.lib_map_editor.Resources import *
+from lib.lib_map_editor.Graphical_logic import *
+from lib.lib_map_editor.Events import *
 
 class Window(Core):
      
     def __init__(self,type_map,name):
         pygame.init()
-        print type(type_map)
+        #print type(type_map)
         if type_map < 3:
             self.empty_map(type_map)
         else:
@@ -114,7 +114,7 @@ class Window(Core):
     def Load_part_of_map(self,x,y):
         textures = self.resources.textures()
         cells_list = self.load_cells(x, y)
-        print len(cells_list)
+        #print len(cells_list)
         for i in range(11):
             textures[i]= pygame.transform.scale(textures[i],(28,28)) 
         for i in range(self.big_steps):
@@ -146,7 +146,7 @@ class Window(Core):
     def event_handler(self):
         event = self.w_event.get_event(self.stage, self.big_step, self.step_p)
         if (event != None):
-            print self.stage
+            #print self.stage
             if self.stage == 0:
                 if (event[0]=='map_coords'):
                     self.action_to_map_coords(event[2],event[3])
@@ -190,7 +190,7 @@ class Window(Core):
                         except AttributeError:
                             self.reload_window(0,0)
 
-                    print self.save_load_name
+                    #print self.save_load_name
 
     def action_to_map_coords(self,x,y):
         textures = self.resources.textures()        

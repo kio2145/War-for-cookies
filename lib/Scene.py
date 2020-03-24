@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pygame
-import const
+import lib.const
 
 class Scene:
     def __init__(self, next_scene = None):
@@ -36,8 +36,8 @@ class Scene:
         # event.get() эквивалентен pygame.event.get()
         # передавая параметр в get мы говорим что именно
         # нас интересует из событий.
-        for e in event.get(const.END_SCENE):
-            if e.type == const.END_SCENE:
+        for e in event.get(lib.const.END_SCENE):
+            if e.type == lib.const.END_SCENE:
                 self.__end = True
 
     # Эту функцию придется переопределить в потомке
@@ -59,7 +59,7 @@ class Scene:
         return self.__end
 
     def the_end(self):
-        pygame.event.post(pygame.event.Event(const.END_SCENE))
+        pygame.event.post(pygame.event.Event(lib.const.END_SCENE))
 
     def set_next_scene(self, scene):
         self.__next_scene = scene

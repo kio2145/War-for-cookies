@@ -25,58 +25,33 @@ class ResManager:
 
     def get_image(self,name):
         fullname = os.path.join(self.data_dir, os.path.join(self.image_dir,name))
-        try:
-            image = pygame.image.load(fullname)
-        except pygame.error, message:
-            print('Cannot load image; {0}'.format(name))
-            raise SystemExit, message
-        else:
-            image = image.convert_alpha()
-            return image
+        image = pygame.image.load(fullname)
+        image = image.convert_alpha()
+        return image
         
     def get_terrain(self,name):
         fullname = os.path.join(self.data_dir, os.path.join(self.textures_dir, os.path.join(self.terrain_dir,name)))
-        try:
-            image = pygame.image.load(fullname)
-        except pygame.error, message:
-            print('Cannot load image; {0}'.format(name))
-            raise SystemExit, message
-        else:
-            image = image.convert_alpha()
-            return image
+        image = pygame.image.load(fullname)
+        image = image.convert_alpha()
+        return image
     
     def get_arrows(self,name):
         fullname = os.path.join(self.data_dir, os.path.join(self.textures_dir, os.path.join(self.arrows_dir,name)))
-        try:
-            image = pygame.image.load(fullname)
-        except pygame.error, message:
-            print('Cannot load image; {0}'.format(name))
-            raise SystemExit, message
-        else:
-            image = image.convert_alpha()
-            return image
+        image = pygame.image.load(fullname)
+        image = image.convert_alpha()
+        return image
         
     def get_units(self,name):
         fullname = os.path.join(self.data_dir, os.path.join(self.units_dir, name))
-        try:
-            image = pygame.image.load(fullname)
-        except pygame.error, message:
-            print('Cannot load image; {0}'.format(name))
-            raise SystemExit, message
-        else:
-            image = image.convert_alpha()
-            return image
+        image = pygame.image.load(fullname)
+        image = image.convert_alpha()
+        return image
         
     def get_units_data(self,name):
         return os.path.join(self.data_dir, os.path.join(self.units_dir, name))
     
     def get_menu(self,name):
         fullname = os.path.join(self.data_dir, os.path.join(self.menu_dir, name))
-        try:
-            image = pygame.image.load(fullname)
-        except pygame.error, message:
-            print('Cannot load image; {0}'.format(name))
-            raise SystemExit, message
-        else:
-            image = image.convert_alpha()
-            return image                
+        image = pygame.image.load(fullname)
+        image = image.convert_alpha()
+        return image                

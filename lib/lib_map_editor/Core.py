@@ -62,7 +62,7 @@ class Core():
         l = ''
         for i in range(len(lines)):
             l+=lines[i]
-        print str(x)+'[;]'+str(y)
+        #print str(x)+'[;]'+str(y)
         a = re.search('[(]'+str(x)+'[;]'+str(y)+'[;][0-9]{1,2}[;][0-2][;][0-9]+[)]',l)
         if a!=None:
             base_line = a.group(0)
@@ -197,7 +197,7 @@ class Core():
             self.y_coord_start = y-13
             self.y_coord_end = y+12
         list_coords = []
-        print str(self.x_coord_start)+' '+ str(self.x_coord_end)+ ' ' + str(self.y_coord_start)+ ' ' + str(self.y_coord_end)
+        #print str(self.x_coord_start)+' '+ str(self.x_coord_end)+ ' ' + str(self.y_coord_start)+ ' ' + str(self.y_coord_end)
         for j in range(self.x_coord_start,self.x_coord_end):
             for k in range(self.y_coord_start,self.y_coord_end):
                 a = re.search('[(]'+str(k)+'[;]'+str(j)+'[;][0-9]{1,2}[;][0-2][;][0-9]+[)]',l)

@@ -5,7 +5,7 @@ Created on 16 черв. 2013
 @author: antimoskal
 '''
 from pygame import *
-from Core import Core
+from lib.lib_game.Core import Core
 
 
 class Graphical_logic:
@@ -77,11 +77,11 @@ class Graphical_logic:
 #Fraction: id_fraction,base(0 - false, 1 - true),milk, cookies,farms,mines
     def add_resources_for_current_fraction(self,fraction,filename):
         fract = self.core.get_fraction_status(filename, fraction)
-        print fract
-        print 'FRACT'
+        #print fract
+        #print 'FRACT'
         self.core.change_fraction_status(filename, fraction, fract[1], fract[2]+fract[4]*20, fract[3]+fract[5]*50, fract[4], fract[5])
         fract = self.core.get_fraction_status(filename, fraction)
-        print fract                
+        #print fract                
         return fract
 
     def troops_generator(self,fraction,filename):
@@ -105,13 +105,13 @@ class Graphical_logic:
             current_resources[0] = current_resources[0]-used_resources[0]
             current_resources[1] = current_resources[1]-used_resources[1]
         base = self.core.load_base(fraction, filename)
-        print str(base[0]+1)+'v v v'+str(base[0])
+        #print str(base[0]+1)+'v v v'+str(base[0])
         bottom_coord = self.core.load_cell(base[0]+1, base[1]+1, filename)
-        print 'bottom coord'
-        print bottom_coord
+        #print 'bottom coord'
+        #print bottom_coord
         id_army = self.core.create_new_army(filename, army[0], army[1], army[2], army[3], army[4], 20, 20, fraction)
         self.core.change_cell(bottom_coord[0], bottom_coord[1], bottom_coord[2], fraction, id_army, filename)
-        print 'bottom coord final'
+        #print 'bottom coord final'
         bottom_coord = self.core.load_cell(bottom_coord[0], bottom_coord[1], filename)
                 
         

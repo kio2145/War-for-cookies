@@ -9,7 +9,7 @@ class Unit():
             self.explain = {'id' : 0, 'name' : 1,'xp':2,
                         'move':3,'cost_cookie':4,'cost_milk':5,
                         'kick':6,'range':7,'bonus':8,'description':9}
-            for line in f.xreadlines():
+            for line in f.readlines():
                 self.data.append(line)
             self.bonus.extend(self.data[8].split(' '))
             for i in range(5):
@@ -17,7 +17,7 @@ class Unit():
             for i in range(2,8):
                 self.data[i]=int(self.data[i])
         else:
-             print name
+             print(name)
     def get_abil(self,n,m):
         if(self.explain.get(n)==8):
             return(self.bonus[m])

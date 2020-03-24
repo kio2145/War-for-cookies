@@ -5,7 +5,7 @@ Created on 16 черв. 2013
 @author: antimoskal
 '''
 import pygame
-from ResManager import ResManager
+from lib.lib_map_editor_battle_map.ResManager import ResManager
 
 class Resources():
     

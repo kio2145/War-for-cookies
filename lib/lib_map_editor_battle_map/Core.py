@@ -92,7 +92,7 @@ class Core():
         l = ''
         for i in range(len(lines)):
             l+=lines[i]
-        print str(x)+'[;]'+str(y)
+        #print str(x)+'[;]'+str(y)
         a = re.search('[(]'+str(x)+'[;]'+str(y)+'[;][0-7][;][0-1]{0,1}[0-9][)]',l)
         if a!=None:
             base_line = a.group(0)
@@ -126,7 +126,7 @@ class Core():
         map_file.close()
 
         list_coords = []
-   #     print str(self.x_coord_start)+' '+ str(self.x_coord_end)+ ' ' + str(self.y_coord_start)+ ' ' + str(self.y_coord_end)
+   #     #print str(self.x_coord_start)+' '+ str(self.x_coord_end)+ ' ' + str(self.y_coord_start)+ ' ' + str(self.y_coord_end)
         for j in range(11):
             for k in range(20):
                 a = re.search('[(]'+str(k)+'[;]'+str(j)+'[;][0-7][;][0-9]+[)]',l)

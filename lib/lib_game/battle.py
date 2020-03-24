@@ -1,14 +1,14 @@
 #-*- coding: utf-8 -*-
-import os, math, unit_w,copy
-from Core import Core
+import os, math, lib.unit_w,copy
+from lib.lib_game.Core import Core
 from random import randint
 class Battle():
     def __init__(self, filename):
-        infantry=unit_w.Unit('data\\units\\infantry.txt')
-        marines=unit_w.Unit('data\\units\\marines.txt')
-        mob_infantry=unit_w.Unit('data\\units\\mobinf.txt')
-        tank=unit_w.Unit('data\\units\\tank.txt')
-        artillery=unit_w.Unit('data\\units\\artillery.txt')
+        infantry=lib.unit_w.Unit('data\\units\\infantry.txt')
+        marines=lib.unit_w.Unit('data\\units\\marines.txt')
+        mob_infantry=lib.unit_w.Unit('data\\units\\mobinf.txt')
+        tank=lib.unit_w.Unit('data\\units\\tank.txt')
+        artillery=lib.unit_w.Unit('data\\units\\artillery.txt')
         filename=('data\\battle_maps\\'+str(filename))
         self.core=Core()
         self.units_list=[infantry,marines,mob_infantry,tank,artillery]

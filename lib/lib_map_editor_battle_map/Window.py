@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 import pygame, sys
-from Core import *
-from ResManager import ResManager
-from Resources import *
-from Graphical_logic import *
-from Events import *
+from lib.lib_map_editor_battle_map.Core import *
+from lib.lib_map_editor_battle_map.ResManager import ResManager
+from lib.lib_map_editor_battle_map.Resources import *
+from lib.lib_map_editor_battle_map.Graphical_logic import *
+from lib.lib_map_editor_battle_map.Events import *
 
 class Window(Core):
      
@@ -91,13 +91,13 @@ class Window(Core):
     def Load_part_of_map(self,x,y):
         textures = self.resources.textures()
         cells_list = self.load_cells(x, y)
-        print len(cells_list)
+        #print len(cells_list)
         for i in range(11):
             textures[i]= pygame.transform.scale(textures[i],(60,60)) 
         for i in range(self.steps_x):
             for j in range(self.steps_y):
-                print (j*self.steps_x+i)
-                print len(cells_list)
+                #print (j*self.steps_x+i)
+                #print len(cells_list)
                 cell_type = cells_list[j*self.steps_x+i][2]
 
                 if (cell_type >7) and (cell_type<12):
@@ -120,7 +120,7 @@ class Window(Core):
     def event_handler(self):
         event = self.w_event.get_event(self.stage, self.big_step, self.step_p)
         if (event != None):
-            print self.stage
+            #print self.stage
             if self.stage == 0:
                 if (event[0]=='map_coords'):
                     self.action_to_map_coords(event[2],event[3])
@@ -164,7 +164,7 @@ class Window(Core):
                         except AttributeError:
                             self.reload_window(0,0)
 
-                    print self.save_load_name
+                    #print self.save_load_name
 
     def action_to_map_coords(self,x,y):
         textures = self.resources.textures()        

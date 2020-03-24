@@ -5,7 +5,7 @@ Created on 15 черв. 2013
 @author: antimoskal
 '''
 import pygame,re
-import sys, Window
+import sys, lib.lib_map_editor.Window
 
 class Events():
   

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pygame
-from ResManager import ResManager
+from lib.ResManager import ResManager
 
 class Game:
     # ширина и высота окна,
