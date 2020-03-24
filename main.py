@@ -184,29 +184,29 @@ class MenuScene(lib.Scene):
         if self.music_counter == 0:
             self.music(1)
             self.music_counter = 1
-        item = u"Evgen `Azon` Darnapuk"
+        item = u"Evgen Darnapuk"
         self.menu.add_menu_item(font_text.render(item,True,(255,255,255)),
-                                font_text.render(item,True,(255,255,255)),
+                                font_text.render(item,True,(72, 209, 204)),
                                 self.empty_func)
-        item = u"Roman `Merorh` Lukov"
+        item = u"Roman Lukov"
         self.menu.add_menu_item(font_text.render(item,True,(255,255,255)),
-                                font_text.render(item,True,(255,255,255)),
+                                font_text.render(item,True,(72, 209, 204)),
                                 self.empty_func)
-        item = u"Vadim `Heiker` Orlov"
+        item = u"Vadim Orlov"
         self.menu.add_menu_item(font_text.render(item,True,(255,255,255)),
-                                font_text.render(item,True,(255,255,255)),
+                                font_text.render(item,True,(72, 209, 204)),
                                 self.empty_func)
-        item = u"Igor `KIO` Kandyba"
+        item = u"Igor Kandyba"
         self.menu.add_menu_item(font_text.render(item,True,(255,255,255)),
-                                font_text.render(item,True,(255,255,255)),
+                                font_text.render(item,True,(72, 209, 204)),
                                 self.empty_func)
         item = u"Denis Goncharow"
         self.menu.add_menu_item(font_text.render(item,True,(255,255,255)),
-                                font_text.render(item,True,(255,255,255)),
+                                font_text.render(item,True,(72, 209, 204)),
                                 self.empty_func)
         item = u"Назад"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self._start)
     def game_window(self):
         self.music(0)
@@ -259,7 +259,7 @@ class MenuScene(lib.Scene):
         # Именно таким образом мы можем получить текст в pygame
         # В данном случае мы используем системный шрифт.
         font      = pygame.font.SysFont("Verdana", 50, bold=False, italic=False)
-        font_bold = pygame.font.SysFont("Verdana", 50, bold=True, italic=False)
+        font_bold = pygame.font.SysFont("Verdana", 70, bold=True, italic=False)
         self.menu.background()
         # Загрузка музыки.
         #pygame.mixer.music.load('data/music/menu.ogg')
@@ -270,27 +270,27 @@ class MenuScene(lib.Scene):
             self.music_counter = 1
         item = u"Новая игра"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.game_window)
         item = u"Загрузить игру"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.item_call)
         item = u"Редактор карт"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.map_editor_cubmenu)
         item = u"Настройки"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.item_call)
         item = u"Создатели"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.autor_print)
         item = u"Выход"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.fun_exit)
 
     def map_editor_cubmenu(self):
@@ -298,7 +298,7 @@ class MenuScene(lib.Scene):
         # Именно таким образом мы можем получить текст в pygame
         # В данном случае мы используем системный шрифт.
         font      = pygame.font.SysFont("Verdana", 50, bold=False, italic=False)
-        font_bold = pygame.font.SysFont("Verdana", 50, bold=True, italic=False)
+        font_bold = pygame.font.SysFont("Verdana", 70, bold=True, italic=False)
         self.menu.background()
         # Загрузка музыки.
         #pygame.mixer.music.load('data/music/menu.ogg')
@@ -307,28 +307,28 @@ class MenuScene(lib.Scene):
         #self.music(1)
         item = u"Карта 50х50"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.map_editor_0)
         item = u"Карта 100х100"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.map_editor_1)
         item = u"Карта 150х150"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.map_editor_2)
         item = u"Последняя несохраненная карта"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.map_editor_last)
         
         item = u"Карта боя"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.battlemap_editor_cubmenu)
         item = u"Назад"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self._start)
 
     def battlemap_editor_cubmenu(self):
@@ -336,7 +336,7 @@ class MenuScene(lib.Scene):
         # Именно таким образом мы можем получить текст в pygame
         # В данном случае мы используем системный шрифт.
         font      = pygame.font.SysFont("Verdana", 50, bold=False, italic=False)
-        font_bold = pygame.font.SysFont("Verdana", 50, bold=True, italic=False)
+        font_bold = pygame.font.SysFont("Verdana", 70, bold=True, italic=False)
         self.menu.background()
         # Загрузка музыки.
         #pygame.mixer.music.load('data/music/menu.ogg')
@@ -345,24 +345,24 @@ class MenuScene(lib.Scene):
         #self.music(1)
         item = u"Трава"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.bmap_editor_0)
         item = u"Песок"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.bmap_editor_1)
         item = u"Грунт"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.bmap_editor_2)
         item = u"Последняя несохраненная карта"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self.bmap_editor_last)
 
         item = u"Назад"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
-                                font_bold.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
                                 self._start)
 
     def _event(self, event):
