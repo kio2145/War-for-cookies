@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import time, pygame, lib
+import time, pygame, lib, os
 #from autor import autor
 def get_center(surface, sprite):
     return (surface.w/2 - sprite.w/2,
@@ -98,13 +98,17 @@ class Menu(lib.Game, lib.Scene):
     # Добавляет новый элемент, нужно передать 2 изображения.
     # На 1 не выбранный вид элемента.
     # На 2 выбранный элемент
-    def add_menu_item(self, no_select, select, func):
+    def add_menu_item(self, no_select, select, func,argss=None):
         self.menu.append({ 'no select' : no_select,
                            'select' : select,
-                           'func' : func })
+                           'func' : func,
+                            'args': argss})
 
     def call(self):
-        self.menu[self.index]['func']()
+        if self.menu[self.index]['args']!=None:
+            self.menu[self.index]['func'](self.menu[self.index]['args'])
+        else:
+            self.menu[self.index]['func']()
 
     def draw(self, display):
         index = 0
@@ -122,6 +126,7 @@ class Menu(lib.Game, lib.Scene):
 class MenuScene(lib.Scene):
     def __init__(self):
         self.music_counter = 0
+        self.map_name=""
     def music(self,i): #для музона 0 стоп остальное играть
          pygame.mixer.music.load('data/music/menu.ogg')
          pygame.mixer.music.play()
@@ -169,6 +174,24 @@ class MenuScene(lib.Scene):
                                 self._start)
     def fun_exit(self):#кнопка закрыть
         exit(1)
+    def testprint(self,t):
+        print(t)
+    def New_Game_Map_Menu(self):
+        self.menu = Menu((250,110))
+        self.map_list=os.listdir("maps")
+        font_text = pygame.font.SysFont("Verdana", 30, bold=False, italic=False)
+        font      = pygame.font.SysFont("Verdana", 50, bold=False, italic=False)
+        font_bold = pygame.font.SysFont("Verdana", 70, bold=True, italic=False)
+        self.menu.background()
+        for item in self.map_list:
+            self.menu.add_menu_item(font.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
+                                self.game_window,item)
+        item=u"Назад"
+        self.menu.add_menu_item(font.render(item,True,(255,255,255)),
+                                font_bold.render(item,True,(72, 209, 204)),
+                                self._start)
+        
     def autor_print(self):
         self.menu = Menu((250,110))
         # Именно таким образом мы можем получить текст в pygame
@@ -208,9 +231,9 @@ class MenuScene(lib.Scene):
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
                                 font_bold.render(item,True,(72, 209, 204)),
                                 self._start)
-    def game_window(self):
+    def game_window(self,map):
         self.music(0)
-        a = lib.Window('first_map_for_test')
+        a = lib.Window("maps\\"+map)
         a.Run()
     def map_editor_0(self):
         self.music(0)
@@ -271,7 +294,8 @@ class MenuScene(lib.Scene):
         item = u"Новая игра"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
                                 font_bold.render(item,True,(72, 209, 204)),
-                                self.game_window)
+                                self.New_Game_Map_Menu)
+                                #self.game_window)
         item = u"Загрузить игру"
         self.menu.add_menu_item(font.render(item,True,(255,255,255)),
                                 font_bold.render(item,True,(72, 209, 204)),

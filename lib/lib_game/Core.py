@@ -45,8 +45,8 @@ class Core():
         if a!=None:
             base_line = a.group(0)
         new_line = '('+str(x)+';'+str(y)+';'+str(t)+';'+str(f)+';'+str(id_army)+')'
-        #print 'New Line'
-        #print new_line 
+        ##print 'New Line'
+        ##print new_line 
         file = open(current_name,'w')
         file.writelines(l.replace(base_line,new_line))
         file.close()
@@ -104,7 +104,7 @@ class Core():
                 a = re.search('[(]'+str(k)+'[;]'+str(j)+'[;][0-9]{1,2}[;][0-2][;][0-9]+[)]',l)
                 if a!= None:
                     list_coords.append(self.get_cell_information(a.group(0)))
-        #print str(list_coords)+'\n'+str(x_coord_start)+'\n'+str(y_coord_start)
+        ##print str(list_coords)+'\n'+str(x_coord_start)+'\n'+str(y_coord_start)
         return list_coords,x_coord_start,y_coord_start
 
     
@@ -244,7 +244,7 @@ class Core():
             l+=lines[i]        
         map_file.close()               
         fract = re.search('[(]'+str(id)+'[;][0-1][;][0-9]{1,6}[;][0-9]{1,4}[;][0-9]{1,4}[;][0-9]{1,4}[)]',l)
-        #print (fract.group(0))
+        #print(fract.group(0))
         return (self.get_fraction_information(fract.group(0)))
                 
     def create_new_army(self,current_name,unit_1,unit_2,unit_3,unit_4,unit_5,move_max,move_current,fraction):
