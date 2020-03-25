@@ -3,7 +3,7 @@ from pygame import *
 from lib.lib_game.Core import Core
 from lib.lib_game.Graphical_logic import Graphical_logic
 from lib.lib_game.battle import Battle
-
+import sys
 
 '''
 Created on 22 черв. 2013
@@ -36,16 +36,23 @@ class Event_Handler():
             last_y = event[3]
             return stage,last_x,last_y,fraction,days, 0,0,x_start,y_start
         elif (event[0]=='save_mode'):
+            print('load_mode')
             stage = event[1]
             return stage,last_x,last_y,fraction,days, 0,0,x_start,y_start
         elif (event[0]=='load_mode'):
+            print('load_mode')
             stage = event[1]
             return stage,last_x,last_y,fraction,days, 0,0,x_start,y_start
         elif (event[0]=='end_of_army_steps'):
-            #print 'end_of_army_steps'
+            print('end_of_army_steps')
             return stage,last_x,last_y,fraction,days, 0,0,x_start,y_start
         elif (event[0]=='base_mode'):
+            print('base_mode')
             stage = event[1]
+            return stage,last_x,last_y,fraction,days, 0,0,x_start,y_start
+        elif (event[0]=='menu_mode'):
+            print('menu_mode')
+            stage = 8
             return stage,last_x,last_y,fraction,days, 0,0,x_start,y_start
         elif (event[0]=='end_of_players_steps'):
             if fraction == 1:

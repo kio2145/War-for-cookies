@@ -7,7 +7,7 @@ from lib.lib_game.Graphical_logic import *
 from lib.lib_game.Events import *
 from lib.lib_game.Event_Handler import Event_Handler
 from lib.lib_game.battle import Battle
-
+from main import *
 class Window():
      
     def __init__(self,map_name):
@@ -238,7 +238,11 @@ class Window():
                 pass
             
             if self.stage == 8:
-                pass
+                pygame.quit()
+                scene = WaitScene(1000, ShowScene(WaitScene(500, HideScene(WaitScene(1000,MenuScene())))))
+                game = lib.Game(1280, 720, scene = scene)
+                game.set_caption("War for Cookies", "icon.png")
+                game.game_loop()
 
     def action_to_map_coords(self,x,y,last_x,last_y):
 #        self.Load_part_of_map(x,y)

@@ -34,7 +34,7 @@ class Events():
             elif type == 1:
                 return ['base_mode',4]
             elif type == 2:
-                pass
+                return ['menu_mode',0]
             elif type == 3:
                 return ['end_of_players_steps',stage]
                 
