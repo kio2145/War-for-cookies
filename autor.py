@@ -5,7 +5,7 @@ class autor():
         pygame.init()
     def background(self):
        background = pygame.image.load('data/image/autors.png')#Фон!!!!!!!!!!!!!!!!!
-       self.screen=pygame.display.set_mode((1200,720))
+       #self.screen=pygame.display.set_mode((1200,720))
        self.screen.blit(background, (0,0))
        pygame.display.flip()
     def autor_print(self):
